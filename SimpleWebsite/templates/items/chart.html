@@ -1,0 +1,36 @@
+<canvas id="myChart" width="200" height="200"></canvas>
+<script>
+const ctx = document.getElementById('myChart');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: {{labels|safe}},
+        datasets: [{
+            label: 'Mexican GDP (in millions) / yearly',
+            data: {{data|safe}},                        
+            borderWidth: 3, 
+            pointStyle: 'circle',
+            BackGroundColor: "#bae755",
+            borderColor: "#ADD8E6",   
+            pointRadius: 3,                    
+            pointHoverBackgroundColor: "#55bae7",
+            pointHoverBorderColor: "#55bae7",            
+        }]
+    },
+    options: {
+        responsive:true,
+        maintainAspectRatio: false, 
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        },
+        plugins:{
+         title: {
+            display: true,
+            text: 'Mexican GDP data. Only 3 datapoints available as quest user'
+            }
+        }
+    }
+});
+</script>
